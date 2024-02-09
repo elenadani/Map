@@ -8,7 +8,7 @@ app = Flask(__name__)
 def render_map():
     con = sqlite3.connect("map_db.sqlite")
     cur = con.cursor()
-    result = cur.execute("""SELECT * FROM Invention WHERE id BETWEEN 1 AND 15""").fetchall()
+    result = cur.execute("""SELECT * FROM Invention WHERE id BETWEEN 1 AND 30""").fetchall()
     con.commit()
     con.close()
     return render_template('map.html', map_dict=result)
@@ -18,7 +18,7 @@ def render_map():
 def render_map_1():
     con = sqlite3.connect("map_db.sqlite")
     cur = con.cursor()
-    result = cur.execute("""SELECT * FROM Invention WHERE (century < 1901) AND id BETWEEN 1 AND 15""").fetchall()
+    result = cur.execute("""SELECT * FROM Invention WHERE (century < 1901) AND id BETWEEN 1 AND 30""").fetchall()
     con.commit()
     con.close()
     return render_template('map.html', map_dict=result)
@@ -28,7 +28,7 @@ def render_map_1():
 def render_map_2():
     con = sqlite3.connect("map_db.sqlite")
     cur = con.cursor()
-    result = cur.execute("""SELECT * FROM Invention WHERE (century > 1900) AND id BETWEEN 1 AND 15""").fetchall()
+    result = cur.execute("""SELECT * FROM Invention WHERE (century > 1900) AND id BETWEEN 1 AND 30""").fetchall()
     con.commit()
     con.close()
     return render_template('map.html', map_dict=result)
